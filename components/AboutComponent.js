@@ -3,6 +3,7 @@ import { Text, ScrollView, FlatList } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
+import Loading from './LoadingComponent';
 
 const mapStateToProps = state => {
     return {
@@ -39,11 +40,33 @@ class About extends Component {
             );
         };
 
+        if(this.props.partners.isLoading) {
+            return (
+                <ScrollView>
+                    <RenderMissionStatement />
+                    <Card title="Community Partners">
+                        <Loading />
+                    </Card>
+                </ScrollView>
+            );
+        }
+
+        if(this.props.partners.errMess) {
+            return (
+                <ScrollView>
+                    <RenderMissionStatement />
+                    <Card title="Community Partners">
+                        {this.props.partners.errMess}
+                    </Card>
+                </ScrollView>
+            );
+        }
+
         return (
             <ScrollView>
                <RenderMissionStatement />
                <Card title="Community Partners">
-               <FlatList 
+                <FlatList 
                     data={this.props.partners.partners}
                     renderItem={renderPartner}
                     keyExtractor={item => item.id.toString()}
