@@ -27,10 +27,9 @@ function RenderComments({comments}) {
                 <Text style={{fontSize: 14}}>{item.text}</Text>
                 <Rating 
                     readonly
-                    startingValue={`${item.rating}`}
+                    startingValue={item.rating}
                     imageSize={10}
                     style={{
-                        paddingVertical: 10, 
                         alignItems: 'flex-start',
                         paddingVertical: '5%'
                     }}
