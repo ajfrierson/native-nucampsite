@@ -92,6 +92,7 @@ function RenderCampsite(props) {
             } else if(!recongnizeDrag(gestureState)) {
                 if(recognizeComment(gestureState)) {
                     props.onShowModal();
+                    //could also be else if(recongnizeComment(gestureState){})
                 }
             }
             return true;
