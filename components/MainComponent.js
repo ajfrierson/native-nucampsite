@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Home from './HomeComponent';
 import Directory from './DirectoryComponent';
-import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
+import { View, Platform, StyleSheet, Text, ScrollView, Image,
+    Alert, ToastAndroid } from 'react-native';
 import { createStackNavigator, createDrawerNavigator,
     DrawerItems } from 'react-navigation';
 import CampsiteInfo from './CampsiteInfoComponent';
+import NetInfo from '@react-native-community/netinfo';
 import Favorites from './FavoritesComponent';
 import Login from './LoginComponent';
 import About from './AboutComponent';
